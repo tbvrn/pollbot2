@@ -9,7 +9,7 @@ It is suggested you use a VPN or proxy.
 FEATURES
 
 Repeatedly fills in the poll without DOS'ing the site. Adds in commentary that is semi-randomly generated and can be
-swapped out with whatever you want. 
+swapped out with whatever you want.
 
 DEPENDENCIES
 

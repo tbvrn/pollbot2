@@ -159,12 +159,10 @@ while true
     session.click_button("Continue")
 
     # first name
-    node = session.find("input#shortText-bc1c508b-9e1e-42a4-8078-f06127f68674")
-    node.set(first)
+    session.find("input#shortText-bc1c508b-9e1e-42a4-8078-f06127f68674").set(first)
 
     # last name
-    node = session.find("input#shortText-5f52699a-51e0-4ac0-bcb8-47bd6c296c5e")
-    node.set(last)
+    session.find("input#shortText-5f52699a-51e0-4ac0-bcb8-47bd6c296c5e").set(last)
 
     # citizenship
     session.find("div#choice-8b713b0a-bd15-4ccd-aeae-af00dfc08788-yes").trigger(:click)
@@ -173,8 +171,9 @@ while true
     session.find("div#choice-1affa7e5-4453-439d-a171-6afda878a7be-yes").trigger(:click)
 
     # zip code
-    node = session.find("input#shortText-43e4b1a1-4201-43cb-a0ed-d46e05f598b8")
-    node.set(zip_codes[rand(0...zip_codes.size)])
+    session
+        .find("input#shortText-43e4b1a1-4201-43cb-a0ed-d46e05f598b8")
+        .set(zip_codes[rand(0...zip_codes.size)])
 
     # phone
     phone = ""
@@ -188,8 +187,7 @@ while true
       when 3
         phone = "#{area_codes[rand(0...area_codes.size)]}#{"%03d" % rand(10**3)}#{"%04d" % rand(10**4)}"
     end
-    node = session.find("input#shortText-c388d242-5595-4cba-b232-0cd2b462083b")
-    node.set(phone)
+    session.find("input#shortText-c388d242-5595-4cba-b232-0cd2b462083b").set(phone)
 
     # email
     domain = email_domains[rand(0...email_domains.size)]
@@ -200,8 +198,7 @@ while true
       when 1
         email = "#{first}#{last[0]}#{rand(10**rand(0..8)).to_s(10)}@#{domain}.com".downcase
     end
-    node = session.find("input#email-18890536-dccf-4fcf-9426-2bbfd80dcfaf")
-    node.set(email)
+    session.find("input#email-18890536-dccf-4fcf-9426-2bbfd80dcfaf").set(email)
 
     # Continue button
     session
@@ -253,15 +250,13 @@ while true
         desc.downcase!
     end
 
-    node = session.find("div.TextAreaWrapper-eos9ho-0.lggbfo textarea")
-    node.set(desc)
+    session.find("div.TextAreaWrapper-eos9ho-0.lggbfo textarea").set(desc)
 
     # newsletter
     session.find("div#choice-f16b228a-576f-466a-94c8-8dd7e2672e01-no").trigger(:click)
 
     # bot check
-    node = session.find("input#number-a17372a6-a09b-4fec-b39c-16abb0577aeb")
-    node.set("1776")
+    session.find("input#number-a17372a6-a09b-4fec-b39c-16abb0577aeb").set("1776")
 
     # terms
     session.find("div#choice-2d2d8db9-857a-46e8-bfa3-e33708b578fe-accept").trigger(:click)
